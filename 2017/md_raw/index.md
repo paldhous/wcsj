@@ -4,8 +4,7 @@
 
 In today's class we will analyze data using **[R](http://www.r-project.org/)**, which is a very powerful tool, designed by statisticians for data analysis. Described on its website as "free software environment for statistical computing and graphics," R is a programming language that opens a world of possibilities for making graphics and analyzing and processing data. Indeed, just about anything you may want to do with data can be done with R, from web scraping to making interactive graphics.
 
-Our goal is to get used to working with data in R. In particular, we will
-learn how to run **[SQL](https://en.wikipedia.org/wiki/SQL)**-like analysis in R using the **[dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)** package.
+Our goal is to get used to working with data in R. In particular, we will learn how to run **[SQL](https://en.wikipedia.org/wiki/SQL)**-like analysis in R using the **[dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)** package.
 
 We will also make some graphics with R using the [**ggplot2**](http://ggplot2.tidyverse.org/reference/) package.
 
@@ -20,6 +19,15 @@ The main panel to the left is the R Console. Type valid R code into here, hit `r
 ```R
 print("Hello World!")
 ```
+### Software installation
+
+Download R for your operating system by following the links from [here](https://cran.rstudio.com/). On the Mac, you need to download and install `R-3.4.2.pkg`.
+
+Download the latest **free** version of RStudio Desktop [from here](http://www.rstudio.com/products/rstudio/download/).
+
+Mac users may also to alter their Mac security preferences to allow apps authored by developers that are not part of Apple's ecosystem. Open `System Preferences>Security & Privacy`, select the `General` tab and click the lock icon at bottom left to make changes, then allow apps downloaded from `Anywhere`:
+
+![](./img/software_1.jpg)
 
 ### The data we will use today
 
@@ -166,7 +174,7 @@ Each time you start R, it's a good idea to click on `Update` in the `Packages` p
 Installing a package makes it available to you, but to use it in any R session you need to load it. You can do this by checking its box in the `Packages` tab. However, we will enter the following code into our script, then highlight these lines of code and run them:
 
 ```r
-# load packages to read, write and manipulate data
+# load required packages
 library(readr)
 library(dplyr)
 library(ggplot)
