@@ -90,7 +90,7 @@ Now we can set the working directory to this folder by selecting from the top me
 Notice how this code appears in the console:
 
 ```R
-setwd("~/Desktop/wcsj")
+setwd("~/Desktop/wcsj-data")
 ```
 
 ### Save your data
@@ -102,13 +102,13 @@ The panel at top right has two tabs, the first showing the `Environment`, or all
 Click on the save/disk icon in the `Environment` panel to save and call the file `wcsj.RData`. You should see the following code appear in the Console:
 
 ```r
-save.image("~/Desktop/wcsj/wcsj.RData")
+save.image("~/Desktop/wcsj-data/wcsj.RData")
 ```
 Copy this code into your script, placing it at the end, with a comment, explaining what it does:
 
 ```r
 # save session data
-save.image("~/Desktop/wcsj/wcsj.RData")
+save.image("~/Desktop/wcsj-data/wcsj.RData")
 ```
 
 ### Comment your code
@@ -118,7 +118,7 @@ Anything that appears on a line after `#` will be treated as a comment, and will
 ### Some R code basics
 
 - `<-` is known as an “assignment operator.” It means: “Make the object named to the left equal to the output of the code to the right.”
-- `&` means AND, in Boolean logic, which we discussed in week 5 when working with web search forms.
+- `&` means AND, in Boolean logic.
 - `|` means OR, in Boolean logic.
 - `!` means NOT, in Boolean logic.
 - When referring to values entered as text, or to dates, put them in quote marks, like this: `"United States"`, or `"2016-07-26"`. Numbers are not quoted.
@@ -136,7 +136,8 @@ Anything that appears on a line after `#` will be treated as a comment, and will
  - `is.na(x)` looks for nulls within variable `x`.
  - `!is.na(x)` looks for non-null values within variable `x`.
 
- `is.na` is a **function**. Functions are followed by parentheses, and act on the code in the parentheses.
+- Functions:
+-`c` and `is.na` are **functions**. Functions are followed by parentheses, and act on the code in the parentheses.
 
 - Equals signs can be a little confusing, but see how they are used in the code we use today:
 
@@ -153,7 +154,7 @@ Much of the power of R comes from the thousands of "packages" written by its com
 In this class, we will work with two incredibly useful packages developed by [Hadley Wickham](http://hadley.nz/), chief scientist at RStudio:
 
 - **[readr](https://cran.r-project.org/web/packages/readr/readr.pdf)** For reading and writes CSV and other text files.
-- **[dplyr](https://cran.r-project.org/web/packages/dplyr/dplyr.pdf)** For processing and manipulating data.
+- **[dplyr](https://cran.r-project.org/web/packages/dplyr/dplyr.pdf)** For processing and analyzing data.
 - **[ggplot2](http://docs.ggplot2.org/current/)** For making graphics.
 
 These and several other useful packages have been combined into a super-package called **[tidyverse](https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/)**.
@@ -317,9 +318,9 @@ Here is the last part of the console output:
 
 ```
 
-### Manipulate and analyze data
+### Process and analyze data
 
-Now we will use **dplyr** to manipulate the data, using these basic operations:
+Now we will use **dplyr** to process the data, using these basic operations:
 
 - **Sort:** Largest to smallest, oldest to newest, alphabetical etc.
 
@@ -345,11 +346,11 @@ Here are some of the most useful functions in **dplyr**:
 	- `n_distinct(x)` Count the number of unique values in variable `x`.
 - `mutate` Create new column(s) in the data, or change existing column(s).
 - `rename` Rename column(s).
-- `bind_rows` Merge two data frames into one, combining data from columns with the same name.
+- `bind_rows` Append one data frames to another, combining data from columns with the same name.
 
 There are also various functions to **join** data, which we will explore below.
 
-These functions can be chained together using the "pipe" operator `%>%` which makes the output of one line of code the input for the next. This allows you to run through a series of operations in logical order. I find it helpful to think of `%>%` as "then."
+All of these functions can be chained together using the "pipe" operator `%>%` which makes the output of one line of code the input for the next. This allows you to run through a series of operations in logical order. I find it helpful to think of `%>%` as "then."
 
 #### Filter and sort data
 
@@ -454,7 +455,7 @@ The new data frame `pfizer2` contains the same data as the original `pfizer`, al
 write_csv(expert_advice, "expert_advice.csv", na="")
 ```
 
-When you run this code, a CSV file with the data should be saved in your `week7` folder. `na=""` ensures that any empty cells in the data frame are saved as blanks -- R represents null values as `NA`, so if you don't include this, any null values will appear as `NA` in the saved file.
+When you run this code, a CSV file with the data should be saved in your `wcsj-data` folder. `na=""` ensures that any empty cells in the data frame are saved as blanks -- R represents null values as `NA`, so if you don't include this, any null values will appear as `NA` in the saved file.
 
 #### Group and summarize data
 
@@ -775,7 +776,7 @@ disease_democ_chart +
 
 ![](./img/class8_9.png)
 
-Notice how the first two `scale` functions are used to set the ranges for the axis, which are entered as a list, using the `c` function we saw last week.
+Notice how the first two `scale` functions are used to set the ranges for the axis, which are entered as a list, using the `c` function.
 
 We also applied a [ColorBrewer](http://colorbrewer2.org) qualitative palette using the `scale_color_brewer` function, and naming the desired `palette`. You can add the text you want to appear as a legend title using `name`, and specify the order in which the legend items appear using `breaks`).
 
