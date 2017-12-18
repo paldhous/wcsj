@@ -178,7 +178,7 @@ Installing a package makes it available to you, but to use it in any R session y
 # load required packages
 library(readr)
 library(dplyr)
-library(ggplot)
+library(ggplot2)
 ```
 
 At this point, and at regular intervals, save your script, by clicking the save/disk icon in the script panel, or using the `⌘-S` keyboard shortcut.
